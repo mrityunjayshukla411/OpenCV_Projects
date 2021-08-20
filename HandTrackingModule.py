@@ -41,11 +41,11 @@ class handDetector:
                 cx, cy = int(lm.x * w), int(lm.y * h)
                 # print(id, cx, cy)
                 lmList.append([id, cx, cy])
-                if id == trackPoint:
-                    if cy > 200:
-                        pt.press("up")
+                # if id == trackPoint:
+                #     # if cy > 200:
+                #     #     pt.press("up")
 
-                    cv2.circle(img, (cx, cy), 15, (255, 0, 0), cv2.FILLED)
+                #     cv2.circle(img, (cx, cy), 15, (255, 0, 0), cv2.FILLED)
 
         return lmList
 

@@ -4,6 +4,7 @@ import time
 import HandTrackingModule as htm
 import pyautogui as pt
 
+
 pTime = 0 
 cTime = 0
 cap = cv2.VideoCapture(0)
