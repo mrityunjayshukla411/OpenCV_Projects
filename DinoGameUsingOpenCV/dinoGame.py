@@ -1,8 +1,11 @@
 import cv2
 import mediapipe as mp
 import time
-import HandTrackingModule as htm
 import pyautogui as pt
+
+import sys
+sys.path.insert(0, '/mjs/programming/openCV/OpenCV_Projects/modules')
+import HandTrackingModule as htm
 
 
 pTime = 0 
@@ -13,11 +16,12 @@ while True:
     success, img = cap.read()
     img = detector.findHands(img, draw=True)
     lmList = detector.findPosition(img, draw=False, trackPoint=8)
-    # if len(lmList) != 0:
-    # print(lmList[8])
-    # cv2.line(img, (0,200),(630,200),3)
-    # if(lmList[8][2] > 200):
-    #     pt.press('up')
+    if len(lmList) != 0:
+        print(lmList[8])
+        cv2.line(img, (0,200),(630,200),(255,32,78),6)
+        cv2.circle(img, (lmList[8][1], lmList[8][2]), 15, (255, 0, 0), cv2.FILLED)
+        if(lmList[8][2] > 200):
+            pt.press('up')
 
     cTime = time.time()
     fps = 1 / (cTime - pTime)

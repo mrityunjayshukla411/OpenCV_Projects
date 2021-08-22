@@ -1,6 +1,8 @@
+ 
 import cv2
 import mediapipe as mp
 import time
+import pyautogui as pt
 
 
 class handDetector:
@@ -29,7 +31,7 @@ class handDetector:
                     )
         return img
 
-    def findPosition(self, img, handNo=0, draw=True):
+    def findPosition(self, img, handNo=0, draw=True, trackPoint=0):
 
         lmList = []
         if self.results.multi_hand_landmarks:
@@ -40,8 +42,11 @@ class handDetector:
                 cx, cy = int(lm.x * w), int(lm.y * h)
                 # print(id, cx, cy)
                 lmList.append([id, cx, cy])
-                if draw:
-                    cv2.circle(img, (cx, cy), 25, (25, 0,0), cv2.FILLED)
+                # if id == trackPoint:
+                #     # if cy > 200:
+                #     #     pt.press("up")
+
+                #     cv2.circle(img, (cx, cy), 15, (255, 0, 0), cv2.FILLED)
 
         return lmList
 
@@ -67,11 +72,7 @@ def main():
         )
 
         cv2.imshow("Image", img)
-        k = cv2.waitKey(1)
-        if k == 27:
-            break
-    cap.release()
-    cv2.destroyAllWindows()
+        cv2.waitKey(1)
 
 
 if __name__ == "__main__":

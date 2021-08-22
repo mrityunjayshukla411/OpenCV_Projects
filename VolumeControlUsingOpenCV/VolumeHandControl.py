@@ -1,8 +1,10 @@
 import cv2
 import time
 import numpy as np
-import HandTrackingModule as htm
 import math
+import sys
+sys.path.insert(0, '/mjs/programming/openCV/OpenCV_Projects/modules')
+import HandTrackingModule as htm
 
 wCam, hCam = 640, 480 # size of window
 cap = cv2.VideoCapture(0)
