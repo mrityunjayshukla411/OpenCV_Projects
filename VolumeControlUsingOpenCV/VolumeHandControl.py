@@ -32,6 +32,7 @@ while True:
         
         length = math.hypot(x2-x1,y2-y1)
         print(length)
+        cv2.putText(img,f'Length: {int(length)}',(400,70), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 0, 127), 3)
         if length <= 40:
             cv2.circle(img, (cx,cy), 15 ,(123,43,123), cv2.FILLED)
     
