@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]  
 
 .json
-.vscode  
+.vscode/  
 
 # C extensions
 *.so
